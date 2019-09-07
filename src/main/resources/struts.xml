@@ -5,13 +5,43 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="default" extends="struts-default">
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.custom.i18n.resources" value="package"  />
+
+
+    <package name="default" namespace="/" extends="struts-default">
         <!-- Action par défaut -->
-        <default-action-ref name="index" />
+        <default-action-ref name="Lister_Client" />
 
         <!-- Action "index" -->
         <action name="index">
             <result>/jsp/index.jsp</result>
         </action>
+
+        <action name="Lister_Client" class="fr.imie.struts.ClientAction" method="lister">
+            <result>/jsp/ListerClient.jsp</result>
+        </action>
+
+        <action name="Ajouter_Client" class="fr.imie.struts.ClientAction" method="ajouter">
+            <result name="input">/jsp/ListerClient.jsp</result>
+            <result name="success" type="redirectAction">Lister_Client</result>
+        </action>
+
+        <action name="Editer_Client" class="fr.imie.struts.ClientAction" method="editer">
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+            <result name="success">/jsp/EditerClient.jsp</result>
+        </action>
+
+        <action name="Modifier_Client" class="fr.imie.struts.ClientAction" method="modifier">
+            <result name="input">/jsp/EditerClient.jsp</result>
+            <result name="success" type="redirectAction">Lister_Client</result>
+        </action>
+
+        <action name="Supprimer_Client" class="fr.imie.struts.ClientAction" method="supprimer">
+            <result name="success" type="redirectAction">Lister_Client</result>
+        </action>
+
+
     </package>
 </struts>
