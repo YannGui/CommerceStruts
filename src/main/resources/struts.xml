@@ -11,12 +11,27 @@
 
 
     <package name="default" namespace="/" extends="struts-default">
+
+<!--        Non Fontionnel-->
+<!--        <interceptors>-->
+<!--            <interceptor name="allowAccessIntercept"-->
+<!--                         class="fr.imie.struts.interceptor.AllowAccessInterceptor">-->
+<!--            </interceptor>-->
+<!--        </interceptors>-->
+
         <!-- Action par défaut -->
         <default-action-ref name="Lister_Client" />
 
-        <!-- Action "index" -->
-        <action name="index">
-            <result>/jsp/index.jsp</result>
+<!--        &lt;!&ndash; Action "index" &ndash;&gt;-->
+<!--        <action name="index">-->
+<!--            <result>/jsp/index.jsp</result>-->
+<!--        </action>-->
+
+
+        <action name="authentifier_Client" class="fr.imie.struts.actions.AllowAccessAction"
+                method="authentifier">
+            <result name="success">/jsp/ListerClient.jsp</result>
+            <result name="input">/jsp/Authentifier.jsp</result>
         </action>
 
         <action name="Lister_Client" class="fr.imie.struts.ClientAction" method="lister">
@@ -40,6 +55,10 @@
 
         <action name="Supprimer_Client" class="fr.imie.struts.ClientAction" method="supprimer">
             <result name="success" type="redirectAction">Lister_Client</result>
+        </action>
+
+        <action name="Lister_Produit" class="fr.imie.struts.ProduitAction" method="lister">
+            <result>/jsp/ListerProduit.jsp</result>
         </action>
 
 

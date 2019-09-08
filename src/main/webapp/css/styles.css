@@ -114,6 +114,21 @@ html, body {
 	font-size:11px;
 	width:100%;
 }
+
+#tableauproduits
+{
+	margin-top:20px;
+	border-style:solid;
+	border-width:1px;
+	border-color: #9fa831;
+	background-color:#E8E8E8;
+	color:#686667;
+	font-family:tahoma, verdana, arial, sans-serif;
+	font-size:11px;
+	width:100%;
+}
+
+
 .ligne1
 {
 	background-color: #CCCBC6;
@@ -121,4 +136,18 @@ html, body {
 .ligne2
 {
 	background-color: #F5F4F6;
+}
+
+#formulaire
+{
+	position: relative;
+	margin-left: 2%;
+	margin-top: 2%;
+	width: 600px;
+	text-align: left;
+	background:#fefefe;
+	border-style:solid;
+	border-width:2px;
+	border-color:#848484;
+	padding: 14px;
 }

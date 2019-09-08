@@ -1,5 +1,15 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
+<header>
+	<s:a action="Lister_Client">
+		<s:param name="request_locale">en</s:param>
+		[English]
+	</s:a>
+	<s:a action="Lister_Client">
+		<s:param name="request_locale">fr</s:param>
+		[Francais]
+	</s:a>
+</header>
 <head>
 <title>Liste des clients</title>
 <style type="text/css">@import url(css/styles.css);</style>
@@ -36,22 +46,21 @@
 		<td><s:property value="idClient"/></td>
 		<td><s:property value="identifiant"/></td>
 		<td><s:property value="motdepasse"/></td>
-    	<td align="center"><a href="Editer_Client.action?idClientEnCours=${idClient}"/><img src="images/editerclient.png" alt="Editer" title="Editer" border="0"/></a></td>
-    	<td align="center"><a href="Supprimer_Client.action?idClientEnCours=${idClient}"/><img src="images/supprimerclient.png" alt="Supprimer" title="Supprimer" border="0"/></a></td>
+		<td align="center"><a href="Editer_Client.action?idClientEnCours=${idClient}"/><img src="images/editerclient.png" alt="Editer" title="Editer" border="0"/></a></td>
+		<td align="center"><a href="Supprimer_Client.action?idClientEnCours=${idClient}"/><img src="images/supprimerclient.png" alt="Supprimer" title="Supprimer" border="0"/></a></td>
   	</tr>
 	</s:iterator>
 	</table>	
 </div>
+
+
 </body>
 
 <footer>
-	<s:a action="Lister_Client">
-		<s:param name="request_locale">en</s:param>
-		[English]
-	</s:a>
-	<s:a action="Lister_Client">
+	<s:a action="Lister_Produit">
 		<s:param name="request_locale">fr</s:param>
-		[Francais]
+		Aller a la liste des produits
 	</s:a>
+
 </footer>
 </html>
